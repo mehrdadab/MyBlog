@@ -1,0 +1,90 @@
+﻿@model MyBlog.Models.Entities.Article
+<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: ".rich-edit textarea",
+        theme: "modern",
+        plugins: [
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak autoresize",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern"
+        ],
+        toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        toolbar2: "print preview media | forecolor backcolor emoticons",
+        image_advtab: true,
+        convert_urls : 0,
+        templates: [
+            { title: 'Test template 1', content: 'Test 1' },
+            { title: 'Test template 2', content: 'Test 2' }
+        ]
+    });
+</script>
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Article</legend>
+
+        @Html.HiddenFor(model => model.ArticleId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleTitle)
+            @Html.ValidationMessageFor(model => model.ArticleTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleSummary)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleSummary)
+            @Html.ValidationMessageFor(model => model.ArticleSummary)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleContent)
+        </div>
+        <div class="editor-field rich-edit">
+            @Html.EditorFor(model => model.ArticleContent)
+            @Html.ValidationMessageFor(model => model.ArticleContent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleDate)
+            @Html.ValidationMessageFor(model => model.ArticleDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ArticleKeywords)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArticleKeywords)
+            @Html.ValidationMessageFor(model => model.ArticleKeywords)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

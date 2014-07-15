@@ -1,0 +1,41 @@
+﻿@model MyBlog.Models.Entities.Article
+
+@{
+    ViewBag.Title = "Content";
+    ViewBag.Keywords = Model.ArticleKeywords;
+}
+
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>@ViewBag.Title.</h1>
+                        <h2>@ViewBag.Message</h2>
+                    </hgroup>
+                </div>
+            </section>
+        </div>
+    </div>
+
+}
+<div class="col-md-9">
+    <div class="well ">
+
+        <h2>@Html.DisplayFor(model => model.ArticleTitle)</h2>
+
+
+        <div class="display-field">
+            @Html.Raw(HttpUtility.HtmlDecode(Model.ArticleContent))
+        </div>
+
+    </div>
+    @Html.Action("CommentList", "Comment", new { articleId = Model.ArticleId })
+    @Html.Action("AddCommentPartial", "Comment", new { id = Model.ArticleId })
+</div>
+<div class="col-md-3">
+    @Html.Action("ArchiveMonths", "Article")
+    @Html.Action("CertificatesLogo", "Home")
+</div>
+

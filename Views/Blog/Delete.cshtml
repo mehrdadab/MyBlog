@@ -1,0 +1,47 @@
+﻿@model MyBlog.Models.Entities.Blog
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Blog</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BlogName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BlogName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Subject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subject)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumOfArticlesInFirstPage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumOfArticlesInFirstPage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SummaryLength)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SummaryLength)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

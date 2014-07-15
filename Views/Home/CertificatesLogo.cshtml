@@ -1,0 +1,12 @@
+﻿@model List<MyBlog.ViewModel.LogoInfo>
+<div class="panel panel-default">
+    <div class="panel-heading">Certification</div>
+    <div class="panel-body">
+      
+            @foreach (var item in Model)
+            {
+                <img src="@item.ImageSource" alt="@item.Desc" />
+            }
+       
+    </div>
+</div>

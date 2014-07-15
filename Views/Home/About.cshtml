@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>@ViewBag.Title</h1>
+                        <h2>@ViewBag.Message</h2>
+                    </hgroup>
+                </div>
+            </section>
+        </div>
+    </div>
+
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article class="col-md-9 well">
+  I am Mehrdad Babaki a Microsoft Specialist.I started my work as a Visual C++ developer and 
+    in 2009 I started developing as a ASP.NET, C# and MVC developer.
+    I love codeing for front-end using javascript, jquery and Got my Microsoft Certification in Programming in HTML5 with JavaScript and CSS3.
+    I do Database Modeling and development using Microsoft SQL Server and like creating Stored Procedures.
+</article>
+
+<div  class="col-md-3">
+@Html.Action("CertificatesLogo","Home")
+ 
+       <a class="twitter-timeline" href="https://twitter.com/mehrdadab" data-widget-id="487433966111043585">Tweets by @@mehrdadab</a>
+<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
+
+</div>

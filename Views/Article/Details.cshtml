@@ -1,0 +1,43 @@
+﻿@model MyBlog.Models.Entities.Article
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Article</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ArticleTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArticleTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ArticleContent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArticleContent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ArticleDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArticleDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ArticleKeywords)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ArticleKeywords)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ArticleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

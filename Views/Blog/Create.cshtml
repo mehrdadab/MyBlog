@@ -1,0 +1,60 @@
+﻿@model MyBlog.Models.Entities.Blog
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Blog</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BlogName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BlogName)
+            @Html.ValidationMessageFor(model => model.BlogName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Subject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Subject)
+            @Html.ValidationMessageFor(model => model.Subject)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumOfArticlesInFirstPage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumOfArticlesInFirstPage)
+            @Html.ValidationMessageFor(model => model.NumOfArticlesInFirstPage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SummaryLength)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SummaryLength)
+            @Html.ValidationMessageFor(model => model.SummaryLength)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

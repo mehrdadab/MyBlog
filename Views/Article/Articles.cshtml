@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MyBlog.Models.Entities.Article>
+
+@{
+    ViewBag.Title = "Articles";
+}
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>@ViewBag.Title.</h1>
+                        <h2>@ViewBag.Message</h2>
+                    </hgroup>
+                </div>
+            </section>
+        </div>
+    </div>
+
+}
+
+<div class="col-md-9">
+    @foreach (var item in Model)
+    {
+        <div class="well">
+            <h3>@Html.DisplayFor(modelItem => item.ArticleTitle)</h3>
+            @Html.Raw(HttpUtility.HtmlDecode(item.ArticleContent))
+        </div>
+    }
+</div>
+<div class="col-md-3">
+    @Html.Action("ArchiveMonths", "Article")
+    @Html.Action("CertificatesLogo", "Home")
+</div>
+

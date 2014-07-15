@@ -1,0 +1,52 @@
+﻿@model MyBlog.Models.Entities.Comment
+@{
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "wholepage",
+        //Url = Url.Action("GetPeopleData"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000
+    };     
+}
+@Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<div id="wholepage">
+    @using (Ajax.BeginForm("AddCommentPartial", "Comment", null, ajaxOpts, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.Hidden("ArticleId", (int)ViewBag.ArticleId)
+        <div class="panel panel-default">
+            <div class="panel-heading">Add Comment</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Fullname, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Fullname, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Fullname)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CommentContent, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.CommentContent, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CommentContent)
+                    </div>
+                </div>
+
+                <p>
+                    <input type="submit" class="btn btn-primary" value="Create" />
+                </p>
+            </div>
+        </div>
+    }
+</div>

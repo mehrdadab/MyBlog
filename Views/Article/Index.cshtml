@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MyBlog.Models.Entities.Article>
+@using MyBlog.Helpers
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    @Html.ActionLink("Create New", "Create", "Article", null, new {@class="btn btn-primary" })
+</div>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleKeywords)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArticleTitle)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.ArticleDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArticleKeywords)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ArticleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ArticleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ArticleId })
+        </td>
+    </tr>
+}
+
+</table>

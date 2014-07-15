@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MyBlog.Models.Entities.Comment>
+
+    <div class="panel panel-default">
+  <div class="panel-heading">Comments</div>
+ <div class="panel-body">
+     <ul class="list-group">
+@foreach (var item in Model) {
+ <li class="list-group-item">
+ 
+            @Html.DisplayFor(modelItem => item.CommentContent)
+  <br />
+     -<b>@Html.DisplayFor(modelItem => item.Fullname)</b>
+     </li>
+@*
+    <div>
+           
+            @Html.DisplayFor(modelItem => item.Email)
+    </div>*@
+ 
+}</ul></div> </div>
+

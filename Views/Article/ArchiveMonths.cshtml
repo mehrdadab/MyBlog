@@ -1,0 +1,15 @@
+﻿@model IEnumerable<String>
+<div class="panel panel-default">
+    <div class="panel-heading">Archive</div>
+    <div class="panel-body">
+        <ul class="list-group">
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item">
+                    @Html.ActionLink(item, "Articles", "Article", new { date = item.Replace(" ", "_") }, null)
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+

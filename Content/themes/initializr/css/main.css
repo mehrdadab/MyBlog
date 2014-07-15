@@ -1,0 +1,94 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {    .jumbotron {
+        background-image:url('/Images/webmed.jpg');
+    }
+  }
+@media (min-width: 768px) and (max-width:992px) {    .jumbotron {
+        background-image:url('/Images/webmed.jpg');
+    }
+  }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width:1200px) { 
+        .jumbotron {
+        background-image:url('/Images/weblg.jpg');
+    }
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .jumbotron {
+        background-image:url('/Images/weblg.jpg');
+    }
+
+}
+
+.jumbotron {
+        color:wheat;
+    }
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -40px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 40px; 
+}
+.site-footer {
+  background: orange;
+  padding-top:10px;
+}
+/*////////////////////CSharp Formating////////////////////*/
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: Consolas, "Courier New", Courier, Monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #a31515; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+/*////////////////////////End of CSharp Formating//////////////////////////////*/
